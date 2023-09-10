@@ -1,25 +1,12 @@
-let count =0;
+let firstCard=5
+let secondCard=6
 
-let countEl=document.getElementById("count-el")
-console.log(countEl)
+let sum=firstCard+secondCard
 
-function decrement()
-{
-    count--;
-    countEl.innerText=count
-}
 
-function increment(){
-    count++;
-    countEl.innerText=count;
-    // console.log(count)
-}
-
-let saveEl=document.getElementById("save-el")
-
-function save()
-{   
-    saveEl.textContent+=count+" - "
-    countEl.textContent=0
-    count=0
-}
+if(sum <21)
+console.log("Do you want to draw a card again")
+else if(sum===21)
+console.log("You win")
+else
+console.log("Loser")

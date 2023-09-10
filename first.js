@@ -1,6 +1,8 @@
-let firstName="UTKARSH"
-let secondName="SHARMA"
+let age=1
 
-let fullName=firstName+" "+secondName
-
-console.log(fullName)
+if(age<100 )
+console.log("no")
+else if(age===100)
+console.log("yes")
+else 
+console.log("No")
