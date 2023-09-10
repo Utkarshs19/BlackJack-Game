@@ -1,25 +1,48 @@
-let firstCard=5
-let secondCard=6
+function getRandomCard()
+{
+    let c= (Math.floor(Math.random()*13)) +1;
 
-let cards=[firstCard,secondCard]
+    if(c===1)return 11
+    else if(c>=11)return 10
+    else return c;
+}
 
-let sum=firstCard+secondCard
+let player={
+ name:"Utkarsh :",
+ chips:145
+}
+
+
+
+let playerEl=document.getElementById("player-el")
+playerEl.textContent=player.name+" $"+player.chips
+
+let cards=[]
+
+let sum=0
 
 let hasBlackJack=false
-let isAlive=true
+let isAlive=false
 let message="";
 let cardsEl=document.getElementById("cards-el")
 let sumEl=document.getElementById("sum-el")
 let messageEl=document.getElementById("message-el")
 
 function startGame()
-{
+{   
+    let firstCard=getRandomCard()
+    let secondCard=getRandomCard()
+    cards=[firstCard,secondCard]
+    sum=firstCard+secondCard 
+    isAlive=true;
     renderGame()
 }
 
 function renderGame(){
     sumEl.textContent="Sum : "+sum
-    cardsEl.textContent="Cards : "+cards[0] + " "+ cards[1]
+    cardsEl.textContent="Cards : "
+    for(let i=0;i<cards.length;i++)
+    cardsEl.textContent+=" "+cards[i]
     if(sum <=20){
 
         message+="Do you want to draw a card again"
@@ -32,7 +55,7 @@ function renderGame(){
     else
     {
         isAlive=false;
-        message+="Loser"
+        message+="You are out of the Game"
     }
    messageEl.textContent=message
    message=""
@@ -41,9 +64,12 @@ function renderGame(){
 
 function newCard()
 {
-    let card=5;
+    if(isAlive==true && hasBlackJack===false){
+    let card=getRandomCard();
+    cards.push(card)
     sum+=card;
     renderGame()
+    }
 }
 
 
