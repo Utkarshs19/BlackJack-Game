@@ -19,5 +19,7 @@ let saveEl=document.getElementById("save-el")
 
 function save()
 {   
-    saveEl.innerText=count
+    saveEl.textContent+=count+" - "
+    countEl.textContent=0
+    count=0
 }
