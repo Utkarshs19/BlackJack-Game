@@ -15,3 +15,9 @@ function increment(){
     // console.log(count)
 }
 
+let saveEl=document.getElementById("save-el")
+
+function save()
+{   
+    saveEl.innerText=count
+}
